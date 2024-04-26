@@ -1,0 +1,32 @@
+@startuml
+participant Usuario
+participant Main
+Participant Juego
+
+activate Main
+activate Juego
+
+Usuario -> Main: Iniciar_Juego()
+
+Main -> Juego: Generar_Matriz_Numeros()
+Main -> Juego: Cargar_Imagenes_Numero()
+Main -> Juego: Asignar_Imagen_a_Numero()
+
+Juego -> Juego: Dibuja estado actual de la matriz
+Juego -> Main: Verificar_Orden()
+
+Usuario -> Main: Capturar_Tecla()
+
+Main -> Main: Verifica_Orden()
+Main --> Main: Mensaje de victoria?
+Main -> Juego: Actualiza_Matriz()
+
+Juego -> Juego: Dibuja estado actual de matriz
+Juego -> Main: Verificar_Orden()
+
+
+
+
+deactivate Main
+deactivate Juego
+@enduml
